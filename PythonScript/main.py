@@ -74,7 +74,6 @@ elif option == 'update':
 
 
 elif option == 'update-on-conflict':
-
     for d in json_data:
         rpls = "REPLACE INTO " + table_name + " SET "
 

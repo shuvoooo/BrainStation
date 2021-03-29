@@ -13,17 +13,23 @@ class Connection:
         self.database = os.getenv("DB_DATABASE")
 
     def connect(self):
+
+        config = {
+            'user': 'root',
+            'password': '',
+            'host': 'localhost',
+            'port': '3306',
+            'database': 'brain_station',
+            'raise_on_warnings': True,
+        }
+
         # Try to connect database
         print(self.host, self.user, self.password, self.database)
         try:
-            with connect(
-                    host=self.host,
-                    user=self.user,
-                    password=self.password,
-                    database=self.database
-            ) as connection:
+            with connect(**config) as connection:
                 print(connection)
         except Error as e:
+            print("Error Heppend!")
             print(e)
 
         return connection
